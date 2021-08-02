@@ -1,0 +1,290 @@
+/* Global */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* End Global */
+
+/* Body */
+body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  font-family: "Oswald", sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
+body:before {
+  content: "";
+  position: absolute;
+  background-image: url(./img/background-img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+
+  transform: scale(2);
+  filter: blur(4px) brightness(40%);
+}
+
+/* End Body */
+
+/* Container */
+.container {
+  margin: 150px auto;
+
+  display: grid;
+  grid-gap: 60px;
+  grid-template-columns: repeat(3, 350px);
+  justify-content: center;
+  align-content: center;
+}
+
+/* End Container */
+
+/* Card */
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+}
+.card__side {
+  height: 40rem;
+  transition: all 1.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.55);
+  border-radius: 4px;
+}
+
+.card__side--back {
+  transform: rotateY(180deg);
+  overflow: visible !important;
+}
+
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+.card:hover .card__side--back {
+  transform: rotateY(0);
+}
+.card__picture {
+  background-size: cover;
+  height: 50rem;
+  background-blend-mode: screen;
+}
+.card__picture--1 {
+  background-image: linear-gradient(to right bottom, #251730, #462f7499),
+    url(img/Khazix/khazix.jpg);
+  filter: saturate(180%);
+  box-shadow: inset 5rem 3rem 10rem rgba(0, 0, 0, 0.8),
+    inset -5rem -15rem 10rem rgba(0, 0, 0, 0.8);
+}
+.card__picture--2 {
+  background-image: linear-gradient(to right bottom, #09090f, #fa3ece99),
+    url(img/Evelynn/evelynn.jpg);
+  filter: saturate(180%);
+  box-shadow: inset 5rem 3rem 10rem rgba(0, 0, 0, 0.8),
+    inset -5rem -15rem 10rem rgba(0, 0, 0, 0.8);
+}
+.card__picture--3 {
+  background-image: linear-gradient(to right bottom, #2d1815, #2183c599),
+    url(img/Nocturne/nocturne.jpg);
+  filter: saturate(180%);
+  box-shadow: inset 5rem 3rem 10rem rgba(0, 0, 0, 0.8),
+    inset -5rem -15rem 10rem rgba(0, 0, 0, 0.8);
+}
+
+.card__heading {
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: left;
+  position: absolute;
+  top: 35.2rem;
+  background-color: #061c256b;
+  width: 100%;
+  padding: 15px;
+}
+
+/* Back */
+
+.card__cta {
+  position: absolute;
+  text-align: center;
+}
+
+.info-champ {
+  position: relative;
+  top: 1rem;
+  width: 90%;
+  margin: 0 auto;
+  font-weight: 200;
+}
+
+.icon-role {
+  margin-top: 20px;
+  width: 50px;
+  fill: #d0a85c;
+}
+
+.role-span {
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d0a85c;
+}
+
+.passive {
+  position: relative;
+  top: 2rem;
+}
+
+.abilities {
+  position: relative;
+  top: 3rem;
+}
+
+.abilities-heading {
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.abilities-heading:before,
+.abilities-heading:after,
+.role-span:before,
+.role-span:after {
+  background-color: rgba(0, 0, 0, 0.226);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 30%;
+}
+
+.abilities-heading:before,
+.role-span:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+.abilities-heading:after,
+.role-span:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+.overlay-abilities {
+  display: grid;
+  grid-gap: 60px;
+  grid-template-columns: repeat(4, 8px);
+  position: absolute;
+  left: 40px;
+}
+
+.overlay {
+  height: 64px;
+  width: 65px;
+  background: #000000c0;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.overlay:hover {
+  opacity: 1;
+}
+
+.overlay span {
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.tooltiptext {
+  height: 64px;
+  width: 65px;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.tooltiptext p {
+  height: max-content !important;
+  width: max-content !important;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 9px;
+  top: 9px;
+  position: relative;
+}
+
+.tooltiptext:hover,
+.tooltiptext-passive:hover {
+  opacity: 1;
+}
+
+.tooltiptext p::after,
+.tooltiptext-passive p::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.tooltiptext-passive {
+  height: 64px;
+  width: 65px;
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  left: 143px;
+  transition: all 0.2s ease-in-out;
+}
+
+.tooltiptext-passive p {
+  height: max-content !important;
+  width: max-content !important;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 9px;
+  right: 23px;
+  top: 69px;
+  position: relative;
+  z-index: 99;
+}
+
+.card__side--back-1 {
+  background-image: linear-gradient(to right bottom, #251730, #835ad4);
+  box-shadow: 0rem 0rem 4rem 1rem #835ad4;
+}
+.card__side--back-2 {
+  background-image: linear-gradient(to right bottom, #09090f, #fa3ece);
+  box-shadow: 0rem 0rem 4rem 1rem #fa3ece;
+}
+.card__side--back-3 {
+  background-image: linear-gradient(to right bottom, #2d1815, #2183c5);
+  box-shadow: 0rem 0rem 4rem 1rem #2183c5;
+}
+
+/* End Back */
